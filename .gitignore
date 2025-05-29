@@ -15,3 +15,14 @@ mongolia_dataset/
 *.zip
 *.tar
 *.tar.gz
+
+# Ignore môi trường ảo python
+env/
+ds313/
+.venv/
+*.egg-info
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
