@@ -71,8 +71,8 @@ if __name__ == "__main__":
         dirpath=ckpt_dir,
         filename=cfg.ckpt_name,
         auto_insert_metric_name=False,
-        save_top_k=5,  # all model save
-        save_last=True,
+        save_top_k=1,  # all model save
+        save_last=False,
     )
 
     callback_list = [checkpoint_callback, LearningRateMonitor(logging_interval="step")]

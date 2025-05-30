@@ -4,7 +4,7 @@ from sacrebleu.metrics.bleu import _get_tokenizer
 def get_segment_tokenizers():
     return {
         "zh": _get_tokenizer("zh")(),
-        "ja": _get_tokenizer("ja-mecab")(),
+        # "ja": _get_tokenizer("ja-mecab")(),
         "default": _get_tokenizer("13a")()
     }
 

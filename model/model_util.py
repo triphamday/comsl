@@ -26,7 +26,7 @@ def load_mbart_model(cfg, extra_special_tokens=None, load_from_local=True, path=
 
     configuration = MBartConfig.from_pretrained(
         MBART_PRETRAINED_MODEL, 
-        cache_dir=cfg.cache_dir
+        cache_dir=cfg.cache_dir,
         )
     if hasattr(cfg, "attention_dropout"):
         configuration.attention_dropout = cfg.attention_dropout

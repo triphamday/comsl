@@ -1,7 +1,7 @@
 module_name: cascade
 train_name: cascade
 train_id: default
-whisper_name: small
+whisper_name: tiny
 monitor: None
 num_nodes: 2
 test_batch_size: 5
@@ -10,13 +10,13 @@ num_train_epochs: 10
 # gradient_accumulation_steps: 2
 gradient_accumulation_steps: 4
 # chunk_size: 30
-chunk_size: 8
+chunk_size: 5
 
 data_root: null
 cv_data_root: null
 output_dir: null
 
-asr_model_path: whisper_small_asr.pt
+asr_model_path: whisper_tiny_asr.pt
 mbart_model_path: mbart_x_en.pt
 
 avail_lang: 
