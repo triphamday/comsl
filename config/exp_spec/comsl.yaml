@@ -2,7 +2,7 @@ module_name: comst
 train_name: ComST
 train_id: default
 
-use_deepspeed: true
+use_deepspeed: false
 use_acti_ckpt: false
 num_nodes: 1
 monitor: val_bleu_spch_epoch
