@@ -4,14 +4,13 @@ train_id: default
 
 use_deepspeed: true
 use_acti_ckpt: false
-num_nodes: 4
+num_nodes: 1
 monitor: val_bleu_spch_epoch
 ckpt_name: "checkpoint-{epoch:02d}-{val_bleu_spch_epoch:.2f}"
 # data_root: /mnt/c/ComSL/mongolia_dataset
-data_root: /kaggle/input/dataset-mongolia
+data_root: /kaggle/input/estonian-corpus/estonian
 cv_data_root: null # được sử dụng nếu bạn muốn sử dụng thêm “pseudo data” hoặc bổ sung dữ liệu ngoài CoVoST2
-# output_dir: /mnt/c/ComSL/output/comsl_mn2en
-/kaggle/working/comsl/output/comsl_mn2en
+output_dir: /kaggle/working/comsl/output/comsl_et2en
 
 warmup_steps: 5000
 batch_size: 1
@@ -52,6 +51,7 @@ erm_loss_weight: 0.2
 language_regularization_model_path: null
 language_init_model_path: null
 spch_init_model_path: null
+
 
 avail_lang: 
 # - french
