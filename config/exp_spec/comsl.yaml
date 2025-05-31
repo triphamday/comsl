@@ -15,14 +15,12 @@ output_dir: /kaggle/working/comsl/output/comsl_et2en
 warmup_steps: 5000
 batch_size: 1
 test_batch_size: 1
-num_worker: 3
-# num_train_epochs: 
-num_train_epochs: 15
-gradient_accumulation_steps: 1
-chunk_size: 11
+num_worker: 4
+num_train_epochs: 10
+gradient_accumulation_steps: 4
+chunk_size: 5
 
 # whisper model
-# whisper_name: small
 whisper_name: tiny
 spch_n_layers: 24
 disable_spch_grad_epoch: 5
@@ -47,7 +45,6 @@ cml_loss_weight: 0.1
 use_erm: true
 erm_loss_weight: 0.2
 
-# model path relative to cache_dir
 language_regularization_model_path: null
 language_init_model_path: null
 spch_init_model_path: null
