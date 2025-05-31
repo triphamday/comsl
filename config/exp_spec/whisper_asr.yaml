@@ -1,5 +1,4 @@
 module_name: whisper_asr
-# train_name: whisper_small_asr
 train_name: whisper_tiny_asr
 train_id: second
 whisper_name: tiny
@@ -10,7 +9,6 @@ output_dir: null
 ckpt_name: "checkpoint-{epoch:02d}-{valid_wer_epoch:.2f}"
 use_deepspeed: true
 use_acti_ckpt: true
-# chunk_size: 30
 chunk_size: 5
 num_nodes: 4
 
@@ -23,13 +21,11 @@ adam_betas: [0.9, 0.98]
 warmup_steps: 5000
 batch_size: 3
 test_batch_size: 5
-# num_worker: 4
 num_worker: 4
 num_train_epochs: 10
-# gradient_accumulation_steps: 2
 gradient_accumulation_steps: 4
 
-avail_lang: 
+avail_lang: # sua ở đây
 # - french
 # - german
 # - spanish
@@ -39,11 +35,11 @@ avail_lang:
 # - portuguese
 # - persian
 # - estonian
-- mongolian
+# - mongolian
 # - dutch
 # - turkish
 # - arabic
-# - swedish
+- swedish
 # - latvian
 # - tamil
 # - japanese

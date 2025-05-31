@@ -26,9 +26,6 @@ if __name__ == "__main__":
     joined_data_pair_lists, sep_data_pair_lists = {}, {}
     for split in ["train", "dev", "test"]:
         subsample_rate = cfg.valid_sample_rate if split == "dev" else 1
-        # language_list = cfg.language_list
-        # expanded_language_list = cfg.extra_language_list
-        # sửa code 
         language_list = getattr(cfg, "language_list", None)
         if language_list is None:
             language_list = getattr(cfg, "avail_lang", None)
@@ -112,3 +109,4 @@ if __name__ == "__main__":
             else:
                 trainer.fit(model, ckpt_path=None)
             trainer.test(model, ckpt_path="best") 
+

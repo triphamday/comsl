@@ -15,6 +15,7 @@ mongolia_dataset/
 *.zip
 *.tar
 *.tar.gz
+swedish_dataset/
 
 # Ignore môi trường ảo python
 env/

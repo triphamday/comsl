@@ -17,7 +17,7 @@ absl-py==2.1.0
 attrs==23.2.0
 blinker==1.4
 cffi==1.16.0
-command-not-found==0.3
+# command-not-found==0.3
 contourpy==1.2.1
 cryptography==3.4.8
 cycler==0.12.1

@@ -1,5 +1,8 @@
 Link to data: https://drive.google.com/drive/folders/1XV6l5pUOTKL129gkRrS7mvr1E3q4-mjI?usp=sharing
 =======
+
+%cd comsl
+
 # Installation
 !pip install \
 deepspeed==0.9.2 \
@@ -33,12 +36,11 @@ print(f"Đã tạo thư mục: {output_path}")
 ```
 
 # Fix path audio_root + data_root
+```
 file_path = "data/data_util.py"
 with open(file_path, "r") as f:
     code = f.read()
 
-# Replace 'audio_root' to true path 
-```
 import re
 code = re.sub(
     r"os\.path\.join\(data_root, ?'mn', ?'clips'\)",
