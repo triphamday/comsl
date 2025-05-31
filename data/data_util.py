@@ -17,11 +17,10 @@ def load_data_record(data_root, split, language_list, subsample_rate=1,
     data_pair_lists = []
     for lang in language_list:
         data_lang_code = LANG_DICT[lang]['covost']
-        data_pair = read_table(os.path.join(data_root, 'covost',
-                                            f"{data_lang_code}_en", f"covost_v2.{data_lang_code}_en.{split}.tsv"))
+        data_pair = read_table(os.path.join(data_root, f"covost_v2.{data_lang_code}_en.{split}.tsv"))
         data_pair['src_lang'] = lang
         data_pair['tgt_lang'] = 'english'
-        data_pair['audio_root'] = os.path.join(data_root, 'extracted', data_lang_code, 'clips')
+        data_pair['audio_root'] = os.path.join(data_root, 'et', data_lang_code, 'clips')
         data_pair = data_pair.dropna()
         data_pair_lists.append(data_pair)
         print(f"Loaded {len(data_pair)} {lang} to english data pairs.")
