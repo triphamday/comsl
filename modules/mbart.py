@@ -87,7 +87,7 @@ class MbartModelModule(LightningModule):
     def forward(self, x):
         return self.model(x)
 
-    def training_step(self, batch, batch_id):
+    def training_step(self, batch, batch_id=None):
         input_ids = batch["enc_input_ids"]
         bsz = input_ids.size(0)
         labels = batch["labels"].long()
@@ -105,7 +105,7 @@ class MbartModelModule(LightningModule):
             for metric in v:
                 metric.set_dtype(torch.float32)
 
-    def validation_step(self, batch, batch_id, dataloader_idx=None):
+    def validation_step(self, batch, batch_id=None, dataloader_idx=None):
         input_ids = batch["enc_input_ids"]
         labels = batch["labels"].long()
         dec_input_ids = batch["dec_input_ids"].long()
