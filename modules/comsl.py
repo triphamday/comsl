@@ -233,7 +233,7 @@ class ComSTModule(LightningModule):
         return decode_res
 
     # def test_epoch_end(self, outputs):
-    def test_epoch_end(self):
+    def on_test_epoch_end(self):
         for metric_name, metric_list in self.test_metrics.items():
             results = [m.compute() for m in metric_list]
             if 'bleu' in metric_name:
@@ -380,6 +380,6 @@ if __name__ == "__main__":
 
             test_res = module.test_step(b, 0, 0)
             print(test_res)
-            module.test_epoch_end([test_res])
+            module.on_test_epoch_end([test_res])
 
             break

@@ -212,7 +212,7 @@ class WhisperAsrModelModule(LightningModule):
             'result': result,
         }
 
-    def test_epoch_end(self, outputs):
+    def on_test_epoch_end(self, outputs):
         wer_scores = [b.compute() for b in self.test_metrics['wer']]
         for i, wer in enumerate(wer_scores):
             self.log(f"test_wer_{i}", round(wer.item(), 2))
@@ -305,6 +305,6 @@ if __name__ == "__main__":
 
             test_res = module.test_step(b, 0, 0)
             print(test_res)
-            module.test_epoch_end([test_res])
+            module.on_test_epoch_end([test_res])
 
             break
