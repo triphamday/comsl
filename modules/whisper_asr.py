@@ -118,7 +118,7 @@ class WhisperAsrModelModule(LightningModule):
     def forward(self, x):
         return self.model(x)
 
-    def decode(self, audio_features, labels, src_langs, tgt_langs, metrics, dataloader_idx):
+    def decode(self, audio_features, labels, src_langs, tgt_langs=None, metrics, dataloader_idx):
         labels[labels == -100] = self.tokenizer.eos_token_id
 
         decode_res = decode(self.model.decoder, enc_hidden_states=audio_features,
@@ -141,7 +141,7 @@ class WhisperAsrModelModule(LightningModule):
 
         return result
 
-    def training_step(self, batch, batch_id):
+    def training_step(self, batch, batch_id=None):
         input_ids = batch["input_ids"]
         labels = batch["labels"].long()
         dec_input_ids = batch["dec_input_ids"].long()
@@ -158,7 +158,7 @@ class WhisperAsrModelModule(LightningModule):
             for metric in v:
                 metric.set_dtype(torch.float32)
 
-    def validation_step(self, batch, batch_id, dataloader_idx=None):
+    def validation_step(self, batch, batch_id=None, dataloader_idx=None):
         if dataloader_idx is None:
             print("warning: dataloader_idx is None")
             dataloader_idx = 0
@@ -181,7 +181,7 @@ class WhisperAsrModelModule(LightningModule):
             "result": result
         }
 
-    def on_validation_epoch_end(self, outputs):
+    def on_validation_epoch_end(self):
         loss_scores = [l.compute() for l in self.valid_metrics['loss']]
         self.log('valid_loss_epoch', torch.mean(torch.tensor(loss_scores)))
         print("valid_loss_epoch", torch.mean(torch.tensor(loss_scores)))
@@ -197,7 +197,7 @@ class WhisperAsrModelModule(LightningModule):
             for metric in v:
                 metric.set_dtype(torch.float32)
 
-    def test_step(self, batch, batch_id, dataloader_idx=None):
+    def test_step(self, batch, batch_id=None, dataloader_idx=None):
         if dataloader_idx is None:
             print("warning: dataloader_idx is None")
             dataloader_idx = 0
@@ -212,7 +212,7 @@ class WhisperAsrModelModule(LightningModule):
             'result': result,
         }
 
-    def on_test_epoch_end(self, outputs):
+    def on_test_epoch_end(self):
         wer_scores = [b.compute() for b in self.test_metrics['wer']]
         for i, wer in enumerate(wer_scores):
             self.log(f"test_wer_{i}", round(wer.item(), 2))

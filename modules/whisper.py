@@ -130,7 +130,7 @@ class WhisperModelModule(LightningModule):
 
         return result
 
-    def training_step(self, batch, batch_id):
+    def training_step(self, batch, batch_id=None):
         input_ids = batch["input_ids"]
         labels = batch["labels"].long()
         dec_input_ids = batch["dec_input_ids"].long()
@@ -147,7 +147,7 @@ class WhisperModelModule(LightningModule):
             for metric in v:
                 metric.set_dtype(torch.float32)
 
-    def validation_step(self, batch, batch_id, dataloader_idx):
+    def validation_step(self, batch, batch_id=None, dataloader_idx=None):
         input_ids = batch["input_ids"]
         labels = batch["labels"].long()
         dec_input_ids = batch["dec_input_ids"].long()
@@ -166,7 +166,7 @@ class WhisperModelModule(LightningModule):
             "result": result,
         }
 
-    def on_validation_epoch_end(self, outputs):
+    def on_validation_epoch_end(self):
         loss_scores = [l.compute() for l in self.valid_metrics['loss']]
         self.log('valid_loss_epoch', torch.mean(torch.tensor(loss_scores)))
         print("valid_loss_epoch", torch.mean(torch.tensor(loss_scores)))
@@ -182,7 +182,7 @@ class WhisperModelModule(LightningModule):
             for metric in v:
                 metric.set_dtype(torch.float32)
 
-    def test_step(self, batch, batch_id, dataloader_idx):
+    def test_step(self, batch, batch_id=None, dataloader_idx=None):
         input_ids = batch["input_ids"]
         labels = batch["labels"].long()
 
@@ -195,7 +195,7 @@ class WhisperModelModule(LightningModule):
             "result": result,
         }
 
-    def on_test_epoch_end(self, outputs):
+    def on_test_epoch_end(self):
         bleu_scores = [b.compute() * 100 for b in self.test_metrics['bleu']]
         for i, bleu in enumerate(bleu_scores):
             self.log(f"test_bleu_{i}", round(bleu.item(), 2))
