@@ -97,7 +97,7 @@ if __name__ == "__main__":
         accumulate_grad_batches=cfg.gradient_accumulation_steps,
         logger=tflogger,
         callbacks=callback_list,
-        # strategy=strategy,
+        strategy=strategy,
     )
 
     if cfg.test_ckpt_name is not None:
