@@ -4,7 +4,7 @@ train_id: default
 
 use_deepspeed: true
 use_acti_ckpt: false
-num_nodes: 4
+num_nodes: 1
 monitor: val_bleu_spch_epoch
 ckpt_name: "checkpoint-{epoch:02d}-{val_bleu_spch_epoch:.2f}"
 # data_root: /mnt/c/ComSL/mongolia_dataset
