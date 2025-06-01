@@ -212,7 +212,7 @@ class WhisperAsrModelModule(LightningModule):
             'result': result,
         }
 
-    def on_test_epoch_end(self, outputs):
+    def on_test_epoch_end(self):
         wer_scores = [b.compute() for b in self.test_metrics['wer']]
         for i, wer in enumerate(wer_scores):
             self.log(f"test_wer_{i}", round(wer.item(), 2))

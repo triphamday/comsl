@@ -183,7 +183,7 @@ class MbartModelModule(LightningModule):
             "label": l_list_,
         }
 
-    def on_test_epoch_end(self, outputs):
+    def on_test_epoch_end(self):
         bleu_scores = [b.compute() * 100 for b in self.test_metrics['bleu']]
         for i, bleu in enumerate(bleu_scores):
             self.log(f"test_bleu_{i}", round(bleu.item(), 2))
