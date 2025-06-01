@@ -8,7 +8,7 @@ num_nodes: 1
 monitor: val_bleu_spch_epoch
 ckpt_name: "checkpoint-{epoch:02d}-{val_bleu_spch_epoch:.2f}"
 # data_root: /mnt/c/ComSL/mongolia_dataset
-data_root: /kaggle/input/estonian-corpus/tamil
+data_root: /kaggle/input/tamil-corpus/tamil
 cv_data_root: null # được sử dụng nếu bạn muốn sử dụng thêm “pseudo data” hoặc bổ sung dữ liệu ngoài CoVoST2
 output_dir: /kaggle/working/comsl/output/comsl_ta2en
 
