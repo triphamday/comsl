@@ -34,14 +34,14 @@ avail_lang:
 # - chinese
 # - portuguese
 # - persian
-- estonian
+# - estonian
 # - mongolian
 # - dutch
 # - turkish
 # - arabic
 # - swedish
 # - latvian
-# - tamil
+- tamil
 # - japanese
 # - indonesian
 # - slovenian
