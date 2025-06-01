@@ -31,7 +31,6 @@ class MbartDataset(torch.utils.data.Dataset):
             "index": id,
         }
 
-
 class MbartCollatorWhithPadding:
     def __init__(
         self,
@@ -69,8 +68,8 @@ class MbartCollatorWhithPadding:
 
 cfg = parse_args_and_yaml(config_path="config/exp_spec/mbart.yaml")
 
-CV_root = ""  # TODO: set your Common Voice root path
-data_language = "french"  # TODO: set your data language, e.g. 'french', 'chinese'
+CV_root = "/mnt/c/ComSL/mongolia_dataset"  # TODO: set your Common Voice root path
+data_language = "mongolian"  # TODO: set your data language, e.g. 'french', 'chinese'
 cfg.mbart_model_path = ""  # TODO: set your mBART model path to your pretrained model
 output_dir = f"{CV_root}/pseudo"
 
