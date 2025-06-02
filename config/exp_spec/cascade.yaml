@@ -27,11 +27,11 @@ avail_lang: # sửa ở đây
 # - portuguese
 # - persian
 # - estonian
-# - mongolian
+- mongolian
 # - dutch
 # - turkish
 # - arabic
-- swedish
+# - swedish
 # - latvian
 # - tamil
 # - japanese

@@ -33,15 +33,15 @@ avail_lang: # sua ở đây
 # - portuguese
 # - persian
 # - estonian
-# - mongolian
-# - dutch
-# - turkish
-# - arabic
-- swedish
-# - latvian
-# - tamil
-# - japanese
-# - indonesian
-# - slovenian
-# - welsh
-# - catalan
+- mongolian
+# # - dutch
+# # - turkish
+# # - arabic
+# - swedish
+# # - latvian
+# # - tamil
+# # - japanese
+# # - indonesian
+# # - slovenian
+# # - welsh
+# # - catalan

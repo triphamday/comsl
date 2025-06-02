@@ -26,7 +26,7 @@ num_worker: 4
 num_train_epochs: 10
 gradient_accumulation_steps: 4
 
-avail_lang: 
+avail_lang: # fix here
 # - french
 # - german
 # - spanish
@@ -36,11 +36,11 @@ avail_lang:
 # - portuguese
 # - persian
 # - estonian
-# - mongolian
+- mongolian
 # - dutch
 # - turkish
 # - arabic
-- swedish
+# - swedish
 # - latvian
 # - tamil
 # - japanese

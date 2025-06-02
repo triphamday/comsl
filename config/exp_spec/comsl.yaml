@@ -7,7 +7,7 @@ use_acti_ckpt: false
 num_nodes: 1
 monitor: val_bleu_spch_epoch
 ckpt_name: "checkpoint-{epoch:02d}-{val_bleu_spch_epoch:.2f}"
-data_root: /kaggle/input/ds313-dataset/swedish_dataset # sửa ở đây 
+data_root: /kaggle/input/ds313-dataset/mongolian # sửa ở đây 
 cv_data_root: null # được sử dụng nếu bạn muốn sử dụng thêm “pseudo data” hoặc bổ sung dữ liệu ngoài CoVoST2
 output_dir: /kaggle/working/comsl/output/comsl_mn2en
 
@@ -58,15 +58,15 @@ avail_lang: # sửa ở đây
 # - portuguese
 # - persian
 # - estonian
-# - mongolian
-# - dutch
-# - turkish
-# - arabic
-- swedish
-# - latvian
-# - tamil
-# - japanese
-# - indonesian
-# - slovenian
-# - welsh
-# - catalan
+- mongolian
+# # - dutch
+# # - turkish
+# # - arabic
+# - swedish
+# # - latvian
+# # - tamil
+# # - japanese
+# # - indonesian
+# # - slovenian
+# # - welsh
+# # - catalan
