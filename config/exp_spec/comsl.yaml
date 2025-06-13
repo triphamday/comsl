@@ -16,8 +16,8 @@ warmup_steps: 1000
 batch_size: 1
 test_batch_size: 1
 num_worker: 4
-num_train_epochs: 5
-gradient_accumulation_steps: 4
+num_train_epochs: 2
+gradient_accumulation_steps: 2
 chunk_size: 5
 
 # whisper model
