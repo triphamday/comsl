@@ -70,7 +70,7 @@ class MbartCollatorWhithPadding:
 cfg = parse_args_and_yaml(config_path="config/exp_spec/mbart.yaml")
 
 CV_root = ""  # TODO: set your Common Voice root path
-data_language = "french"  # TODO: set your data language, e.g. 'french', 'chinese'
+data_language = "tamil"  # TODO: set your data language, e.g. 'french', 'chinese'
 cfg.mbart_model_path = ""  # TODO: set your mBART model path to your pretrained model
 output_dir = f"{CV_root}/pseudo"
 
