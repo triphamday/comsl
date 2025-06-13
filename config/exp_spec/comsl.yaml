@@ -12,17 +12,17 @@ data_root: /kaggle/input/estonian-corpus/estonian
 cv_data_root: null # được sử dụng nếu bạn muốn sử dụng thêm “pseudo data” hoặc bổ sung dữ liệu ngoài CoVoST2
 output_dir: /kaggle/working/comsl/output/comsl_et2en
 
-warmup_steps: 5000
+warmup_steps: 1000
 batch_size: 1
 test_batch_size: 1
 num_worker: 4
-num_train_epochs: 10
+num_train_epochs: 5
 gradient_accumulation_steps: 4
 chunk_size: 5
 
 # whisper model
 whisper_name: tiny
-spch_n_layers: 24
+spch_n_layers: 12
 disable_spch_grad_epoch: 5
 
 learning_rate: 2.0e-5
